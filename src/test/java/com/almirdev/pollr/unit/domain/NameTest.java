@@ -1,0 +1,55 @@
+package com.almirdev.pollr.unit.domain;
+
+import com.almirdev.pollr.domain.Name;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class NameTest {
+    @Test
+    public void shouldCreateNameWhenValueIsValid() {
+        assertDoesNotThrow(() -> {
+            Name name = Name.of("John Doe");
+        });
+    }
+
+    @Test
+    public void shouldThrowExceptionWhenValueIsNull() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Name name = Name.of(null);
+        });
+    }
+
+    @Test
+    public void shouldThrowExceptionWhenValueIsEmpty() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Name name = Name.of(null);
+        });
+    }
+
+    @Test
+    public void shouldThrowExceptionWhenValueIsInvalid() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            String invalidName = "John-Doe";
+            Name name = Name.of(invalidName);
+        });
+    }
+
+    @Test
+    public void shouldThrowExceptionWhenValueLengthGreaterThanMax() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            String invalidName = "John";
+            invalidName += " Doe".repeat(30);
+
+            Name name = Name.of(invalidName);
+        });
+    }
+
+    @Test
+    public void shouldBeEqualWhenValuesAreIdentical() {
+        Name name1 = Name.of("John Doe");
+        Name name2 = Name.of("John Doe");
+
+        assertEquals(name1, name2);
+    }
+}
