@@ -1,7 +1,6 @@
-package com.almirdev.pollr.domain;
+package com.almirdev.pollr.domain.user;
 
 import java.util.Objects;
-import java.util.regex.Pattern;
 
 public class Password {
     private String value;

@@ -1,55 +1,50 @@
-package com.almirdev.pollr.unit.domain;
+package com.almirdev.pollr.unit.domain.user;
 
-import com.almirdev.pollr.domain.Name;
+import com.almirdev.pollr.domain.user.Nickname;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
-public class NameTest {
+public class NicknameTest {
     @Test
-    public void shouldCreateNameWhenValueIsValid() {
-        assertDoesNotThrow(() -> {
-            Name name = Name.of("John Doe");
-        });
+    public void shouldCreateNicknameWhenValueIsValid() {
+        Nickname nickname = Nickname.of("johndoe");
     }
 
     @Test
     public void shouldThrowExceptionWhenValueIsNull() {
         assertThrows(IllegalArgumentException.class, () -> {
-            Name name = Name.of(null);
+            Nickname nickname = Nickname.of(null);
         });
     }
 
     @Test
     public void shouldThrowExceptionWhenValueIsEmpty() {
         assertThrows(IllegalArgumentException.class, () -> {
-            Name name = Name.of("");
+           Nickname nickname = Nickname.of("");
         });
     }
 
     @Test
     public void shouldThrowExceptionWhenValueIsInvalid() {
         assertThrows(IllegalArgumentException.class, () -> {
-            String invalidName = "John-Doe";
-            Name name = Name.of(invalidName);
+            String invalidNickName = "johndoe+´^";
+            Nickname nickname = Nickname.of(invalidNickName);
         });
     }
 
     @Test
     public void shouldThrowExceptionWhenValueLengthGreaterThanMax() {
         assertThrows(IllegalArgumentException.class, () -> {
-            String invalidName = "John";
-            invalidName += " Doe".repeat(30);
-
-            Name name = Name.of(invalidName);
+            String largeNickname = "averyverylargenickname";
+            Nickname nickname = Nickname.of(largeNickname);
         });
     }
 
     @Test
     public void shouldBeEqualWhenValuesAreIdentical() {
-        Name name1 = Name.of("John Doe");
-        Name name2 = Name.of("John Doe");
+        Nickname nickname1 = Nickname.of("johndoe");
+        Nickname nickname2 = Nickname.of("johndoe");
 
-        assertEquals(name1, name2);
+        assertEquals(nickname1, nickname2);
     }
 }

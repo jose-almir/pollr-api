@@ -1,4 +1,4 @@
-package com.almirdev.pollr.domain;
+package com.almirdev.pollr.domain.poll;
 
 import java.security.SecureRandom;
 import java.util.Objects;

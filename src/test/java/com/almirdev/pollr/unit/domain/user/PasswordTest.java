@@ -1,6 +1,6 @@
-package com.almirdev.pollr.unit.domain;
+package com.almirdev.pollr.unit.domain.user;
 
-import com.almirdev.pollr.domain.Password;
+import com.almirdev.pollr.domain.user.Password;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

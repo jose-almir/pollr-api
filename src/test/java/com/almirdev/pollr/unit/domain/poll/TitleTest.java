@@ -1,6 +1,6 @@
-package com.almirdev.pollr.unit.domain;
+package com.almirdev.pollr.unit.domain.poll;
 
-import com.almirdev.pollr.domain.Title;
+import com.almirdev.pollr.domain.poll.Title;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

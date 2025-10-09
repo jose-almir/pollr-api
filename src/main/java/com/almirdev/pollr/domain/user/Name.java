@@ -1,4 +1,4 @@
-package com.almirdev.pollr.domain;
+package com.almirdev.pollr.domain.user;
 
 import java.util.Objects;
 
