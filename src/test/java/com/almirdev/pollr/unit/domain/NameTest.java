@@ -23,7 +23,7 @@ public class NameTest {
     @Test
     public void shouldThrowExceptionWhenValueIsEmpty() {
         assertThrows(IllegalArgumentException.class, () -> {
-            Name name = Name.of(null);
+            Name name = Name.of("");
         });
     }
 
