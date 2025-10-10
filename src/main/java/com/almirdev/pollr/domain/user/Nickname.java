@@ -25,6 +25,10 @@ public class Nickname {
         return new Nickname(value);
     }
 
+    public String getValue() {
+        return value;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Nickname nickname)) return false;
