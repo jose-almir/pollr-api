@@ -59,14 +59,34 @@ public class UserTest {
     }
 
     @Test
-    public void shouldBeEqualWhenIdsAreIdentical() {
-        User user1 = User.create("John Doe", "john.doe1@example.com", "john_doe1", "secret1");
-        User user2 = User.create("John Doe", "john.doe2@example.com", "john_doe2", "secret2");
+    public void shouldBeEqualWhenIdsAndEmailsAreIdentical() {
+        User user1 = User.create("John Doe", "john.doe@example.com", "john_doe1", "secret1");
+        User user2 = User.create("John Doe", "john.doe@example.com", "john_doe2", "secret2");
 
         user1.setId(1L);
         user2.setId(1L);
 
         assertEquals(user1, user2);
         assertEquals(user1.hashCode(), user2.hashCode());
+    }
+
+    @Test
+    void shouldBeEqualWhenIdsAreNullButEmailsAreTheSame() {
+        User user1 = User.create("John Doe", "john.doe@example.com", "johnny", "secret");
+        User user2 = User.create("Jane Doe", "john.doe@example.com", "jane_doe", "123456");
+
+        assertEquals(user1, user2);
+        assertEquals(user1.hashCode(), user2.hashCode());
+    }
+
+    @Test
+    void shouldBeEqualWhenIdsAreTheSameEvenIfEmailsDiffer() {
+        User user1 = User.create("John Doe", "john1@example.com", "johnny", "secret");
+        User user2 = User.create("John Doe", "john2@example.com", "johnny", "secret");
+
+        user1.setId(42L);
+        user2.setId(42L);
+
+        assertEquals(user1, user2);
     }
 }

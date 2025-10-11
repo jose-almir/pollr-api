@@ -96,12 +96,18 @@ public class User {
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (!(o instanceof User user)) return false;
-        return Objects.equals(getId(), user.getId());
+
+        if (id != null && user.id != null) {
+            return Objects.equals(id, user.id);
+        }
+
+        return Objects.equals(email, user.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(getId());
+        return id != null ? Objects.hash(id) : Objects.hash(email);
     }
 }
