@@ -11,21 +11,21 @@ public class NicknameTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenValueIsNull() {
+    public void shouldThrowWhenValueIsNull() {
         assertThrows(IllegalArgumentException.class, () -> {
             Nickname nickname = Nickname.of(null);
         });
     }
 
     @Test
-    public void shouldThrowExceptionWhenValueIsEmpty() {
+    public void shouldThrowWhenValueIsEmpty() {
         assertThrows(IllegalArgumentException.class, () -> {
            Nickname nickname = Nickname.of("");
         });
     }
 
     @Test
-    public void shouldThrowExceptionWhenValueIsInvalid() {
+    public void shouldThrowWhenValueIsInvalid() {
         assertThrows(IllegalArgumentException.class, () -> {
             String invalidNickName = "johndoe+´^";
             Nickname nickname = Nickname.of(invalidNickName);
@@ -33,7 +33,7 @@ public class NicknameTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenValueLengthGreaterThanMax() {
+    public void shouldThrowWhenValueLengthGreaterThanMax() {
         assertThrows(IllegalArgumentException.class, () -> {
             String largeNickname = "averyverylargenickname";
             Nickname nickname = Nickname.of(largeNickname);

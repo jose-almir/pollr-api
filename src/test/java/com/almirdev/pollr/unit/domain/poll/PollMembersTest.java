@@ -32,7 +32,7 @@ public class PollMembersTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenMembersIsNull() {
+    public void shouldThrowWhenMembersIsNull() {
         assertThrows(IllegalArgumentException.class, () -> {
             PollMembers members = PollMembers.of(null);
         });

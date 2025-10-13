@@ -14,21 +14,21 @@ public class NameTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenValueIsNull() {
+    public void shouldThrowWhenValueIsNull() {
         assertThrows(IllegalArgumentException.class, () -> {
             Name name = Name.of(null);
         });
     }
 
     @Test
-    public void shouldThrowExceptionWhenValueIsEmpty() {
+    public void shouldThrowWhenValueIsEmpty() {
         assertThrows(IllegalArgumentException.class, () -> {
             Name name = Name.of("");
         });
     }
 
     @Test
-    public void shouldThrowExceptionWhenValueIsInvalid() {
+    public void shouldThrowWhenValueIsInvalid() {
         assertThrows(IllegalArgumentException.class, () -> {
             String invalidName = "John-Doe";
             Name name = Name.of(invalidName);
@@ -36,7 +36,7 @@ public class NameTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenValueLengthGreaterThanMax() {
+    public void shouldThrowWhenValueLengthGreaterThanMax() {
         assertThrows(IllegalArgumentException.class, () -> {
             String invalidName = "John";
             invalidName += " Doe".repeat(30);

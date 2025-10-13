@@ -18,21 +18,21 @@ public class PasswordTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenPlainTextIsNull() {
+    public void shouldThrowWhenPlainTextIsNull() {
         assertThrows(IllegalArgumentException.class, () -> {
             Password password = Password.ofPlainText(null);
         });
     }
 
     @Test
-    public void shouldThrowExceptionWhenPlainTextIsEmpty() {
+    public void shouldThrowWhenPlainTextIsEmpty() {
         assertThrows(IllegalArgumentException.class, () -> {
             Password password = Password.ofPlainText("");
         });
     }
 
     @Test
-    public void shouldThrowExceptionWhenPlainTextLengthIsInvalid() {
+    public void shouldThrowWhenPlainTextLengthIsInvalid() {
         assertThrows(IllegalArgumentException.class, () -> {
             String invalidValue = "1234";
             Password password = Password.ofPlainText(invalidValue);

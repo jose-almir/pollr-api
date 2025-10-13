@@ -16,21 +16,21 @@ public class EmailTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenValueIsNull() {
+    public void shouldThrowWhenValueIsNull() {
         assertThrows(IllegalArgumentException.class, () -> {
            Email email = Email.of(null);
         });
     }
 
     @Test
-    public void shouldThrowExceptionWhenValueIsEmpty() {
+    public void shouldThrowWhenValueIsEmpty() {
         assertThrows(IllegalArgumentException.class, () -> {
             Email email = Email.of("");
         });
     }
 
     @Test
-    public void shouldThrowExceptionWhenValueIsInvalid() {
+    public void shouldThrowWhenValueIsInvalid() {
         assertThrows(IllegalArgumentException.class, () -> {
             String invalidValue = "john.doe.invalid";
             Email email = Email.of(invalidValue);

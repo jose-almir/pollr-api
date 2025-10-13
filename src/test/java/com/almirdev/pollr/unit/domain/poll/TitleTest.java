@@ -15,21 +15,21 @@ public class TitleTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenValueIsNull() {
+    public void shouldThrowWhenValueIsNull() {
         assertThrows(IllegalArgumentException.class, () -> {
             Title name = Title.of(null);
         });
     }
 
     @Test
-    public void shouldThrowExceptionWhenValueIsEmpty() {
+    public void shouldThrowWhenValueIsEmpty() {
         assertThrows(IllegalArgumentException.class, () -> {
             Title name = Title.of("");
         });
     }
 
     @Test
-    public void shouldThrowExceptionWhenValueLengthGreaterThanMax() {
+    public void shouldThrowWhenValueLengthGreaterThanMax() {
         assertThrows(IllegalArgumentException.class, () -> {
             String invalidValue = "A " + "very ".repeat(40) + "large poll title";
             Title name = Title.of(invalidValue);

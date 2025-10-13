@@ -72,7 +72,7 @@ public class VoteTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenVoterNotMemberPrivatePoll() {
+    public void shouldThrowWhenVoterNotMemberPrivatePoll() {
         Option chosenOption = Option.of("A");
 
         assertThrows(IllegalStateException.class, () -> {
@@ -81,7 +81,7 @@ public class VoteTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenUserIsNullPublicPoll() {
+    public void shouldThrowWhenUserIsNullPublicPoll() {
         Option chosenOption = Option.of("A");
 
         assertThrows(IllegalArgumentException.class, () -> {
@@ -90,7 +90,7 @@ public class VoteTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenAnonymousVoteOnNonAnonymousPoll() {
+    public void shouldThrowWhenAnonymousVoteOnNonAnonymousPoll() {
         Option option = Option.of("A");
         assertThrows(IllegalStateException.class, () -> {
             Vote.createAnonymous(publicPoll, option, UUID.randomUUID().toString());
@@ -98,7 +98,7 @@ public class VoteTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenPollIsNull() {
+    public void shouldThrowWhenPollIsNull() {
         Option chosenOption = Option.of("A");
 
         assertThrows(IllegalArgumentException.class, () -> {

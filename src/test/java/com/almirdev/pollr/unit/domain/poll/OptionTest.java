@@ -16,14 +16,14 @@ public class OptionTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenOptionValueIsNull() {
+    public void shouldThrowWhenOptionValueIsNull() {
         assertThrows(IllegalArgumentException.class, () -> {
             Option option = Option.of(null);
         });
     }
 
     @Test
-    public void shouldThrowExceptionWhenOptionValueIsEmpty() {
+    public void shouldThrowWhenOptionValueIsEmpty() {
         assertThrows(IllegalArgumentException.class, () -> {
             Option option = Option.of("");
         });

@@ -21,21 +21,21 @@ public class PollOptionsTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenOptionsIsNull() {
+    public void shouldThrowWhenOptionsIsNull() {
         assertThrows(IllegalArgumentException.class, () -> {
             PollOptions options = PollOptions.of(null);
         });
     }
 
     @Test
-    public void shouldThrowExceptionWhenOptionsIsEmpty() {
+    public void shouldThrowWhenOptionsIsEmpty() {
         assertThrows(IllegalArgumentException.class, () -> {
             PollOptions options = PollOptions.of(Set.of());
         });
     }
 
     @Test
-    public void shouldThrowExceptionWhenOptionCountExceedsLimit() {
+    public void shouldThrowWhenOptionCountExceedsLimit() {
         assertThrows(IllegalArgumentException.class, () -> {
            PollOptions options = PollOptions.of(mockOptionsSet(12)) ;
         });

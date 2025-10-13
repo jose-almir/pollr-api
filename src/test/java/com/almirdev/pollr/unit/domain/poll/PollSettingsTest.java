@@ -50,7 +50,7 @@ public class PollSettingsTest {
     }
 
     @Test
-    public void shouldThrowExceptionWhenEndBeforeStart() {
+    public void shouldThrowWhenEndBeforeStart() {
         LocalDateTime start = LocalDateTime.now().plusDays(2);
         LocalDateTime end = LocalDateTime.now().plusDays(1);
 
@@ -61,7 +61,7 @@ public class PollSettingsTest {
     }
 
     @Test
-    public void shouldThrowExceptionForPrivateAnonymousPoll() {
+    public void shouldThrowForPrivateAnonymousPoll() {
         assertThrows(IllegalStateException.class, () -> {
             PollSettings.of(AccessLevel.PRIVATE, VotePermission.ANONYMOUS,
                     ResultsVisibility.MEMBERS, Status.ACTIVE, null, null);
@@ -69,7 +69,7 @@ public class PollSettingsTest {
     }
 
     @Test
-    void shouldThrowExceptionForPrivatePollVisibleToAll() {
+    void shouldThrowForPrivatePollVisibleToAll() {
         assertThrows(IllegalStateException.class, () -> {
             PollSettings.of(AccessLevel.PRIVATE, VotePermission.AUTHENTICATED,
                     ResultsVisibility.ALL, Status.ACTIVE, null, null);
@@ -77,7 +77,7 @@ public class PollSettingsTest {
     }
 
     @Test
-    void shouldThrowExceptionForPublicPollVisibleToMembers() {
+    void shouldThrowForPublicPollVisibleToMembers() {
         assertThrows(IllegalStateException.class, () -> {
             PollSettings.of(AccessLevel.PUBLIC, VotePermission.AUTHENTICATED,
                     ResultsVisibility.MEMBERS, Status.ACTIVE, null, null);
