@@ -18,7 +18,8 @@ public class Vote {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    protected Vote() {}
+    protected Vote() {
+    }
 
     private Vote(VoteType type, Poll poll, User user, Option option, String anonymousToken) {
         this.type = type;
@@ -33,11 +34,11 @@ public class Vote {
     public static Vote create(Poll poll, User user, Option option) {
         validatePollAndOption(poll, option);
 
-        if(user == null) {
+        if (user == null) {
             throw new IllegalArgumentException("User can't be null on a authenticated vote");
         }
 
-        if(poll.getSettings().getAccessLevel() == AccessLevel.PRIVATE && !poll.getMembers().isMember(user)) {
+        if (poll.getSettings().getAccessLevel() == AccessLevel.PRIVATE && !poll.getMembers().isMember(user)) {
             throw new IllegalStateException("Can't vote. User don't have permission.");
         }
 
@@ -47,7 +48,7 @@ public class Vote {
     public static Vote createAnonymous(Poll poll, Option option, String anonymousToken) {
         validatePollAndOption(poll, option);
 
-        if(poll.getSettings().getVotePermission() != VotePermission.ANONYMOUS) {
+        if (poll.getSettings().getVotePermission() != VotePermission.ANONYMOUS) {
             throw new IllegalStateException("Anonymous vote only on a valid poll");
         }
 
@@ -55,17 +56,17 @@ public class Vote {
     }
 
     private static void validatePollAndOption(Poll poll, Option option) {
-        if(poll == null) {
+        if (poll == null) {
             throw new IllegalArgumentException("Poll can't be null on a vote");
         }
 
-        if(!poll.getOptions().contains(option)) {
+        if (!poll.getOptions().contains(option)) {
             throw new IllegalStateException("Poll doesn't have that option");
         }
     }
 
     public void changeOption(Option newOption) {
-        if(!poll.getOptions().contains(newOption)) {
+        if (!poll.getOptions().contains(newOption)) {
             throw new IllegalArgumentException("Poll doesn't have that option");
         }
         this.option = newOption;

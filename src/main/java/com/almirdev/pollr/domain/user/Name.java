@@ -5,24 +5,25 @@ import java.util.Objects;
 public class Name {
     private String value;
 
-    protected Name() {}
+    protected Name() {
+    }
 
     private Name(String value) {
         this.value = value;
     }
 
     public static Name of(String value) {
-        if(value == null || value.trim().isEmpty()) {
+        if (value == null || value.trim().isEmpty()) {
             throw new IllegalArgumentException("User name can't be empty.");
         }
 
         String normalized = value.trim().replaceAll("\\s+", " ");
 
-        if(normalized.length() < 2 || normalized.length() > 100) {
+        if (normalized.length() < 2 || normalized.length() > 100) {
             throw new IllegalArgumentException("User name must have length between 2 and 100.");
         }
 
-        if(!normalized.matches("^[\\p{L} ]+$")) {
+        if (!normalized.matches("^[\\p{L} ]+$")) {
             throw new IllegalArgumentException("User name contain invalid characters.");
         }
 

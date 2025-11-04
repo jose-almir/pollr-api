@@ -6,24 +6,25 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-public class PollMembers {
+public class PollGroup {
     private Set<User> members;
 
-    protected PollMembers() {}
+    protected PollGroup() {
+    }
 
-    private PollMembers(Set<User> members) {
+    private PollGroup(Set<User> members) {
         this.members = new HashSet<>(members);
     }
 
-    public static PollMembers empty() {
-        return new PollMembers(Set.of());
+    public static PollGroup empty() {
+        return new PollGroup(Set.of());
     }
 
-    public static PollMembers of(Set<User> members) {
-        if(members == null) {
+    public static PollGroup of(Set<User> members) {
+        if (members == null) {
             throw new IllegalArgumentException("Poll members can't be null.");
         }
-        return new PollMembers(members);
+        return new PollGroup(members);
     }
 
     public boolean add(User user) {

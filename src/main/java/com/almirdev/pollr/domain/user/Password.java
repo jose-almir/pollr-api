@@ -6,7 +6,8 @@ public class Password {
     private String value;
     private boolean hashed = true;
 
-    protected Password() {}
+    protected Password() {
+    }
 
     private Password(String value, boolean hashed) {
         this.value = value;
@@ -18,13 +19,13 @@ public class Password {
     }
 
     public static Password ofPlainText(String value) {
-        if(value == null || value.trim().isEmpty()) {
+        if (value == null || value.trim().isEmpty()) {
             throw new IllegalArgumentException("Password can't be empty");
         }
 
         String normalized = value.trim();
 
-        if(normalized.length() < 6) {
+        if (normalized.length() < 6) {
             throw new IllegalArgumentException("Password must have length above 6 characters");
         }
 

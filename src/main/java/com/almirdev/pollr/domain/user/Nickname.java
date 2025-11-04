@@ -11,14 +11,15 @@ public class Nickname {
 
     private String value;
 
-    protected Nickname() {}
+    protected Nickname() {
+    }
 
     private Nickname(String value) {
         this.value = value;
     }
 
     public static Nickname of(String value) {
-        if(value == null || !NICKNAME_PATTERN.matcher(value).matches()) {
+        if (value == null || !NICKNAME_PATTERN.matcher(value).matches()) {
             throw new IllegalArgumentException("Invalid nickname: " + value);
         }
 

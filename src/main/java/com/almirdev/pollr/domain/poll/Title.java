@@ -5,21 +5,22 @@ import java.util.Objects;
 public class Title {
     private String value;
 
-    protected Title() {}
+    protected Title() {
+    }
 
     private Title(String value) {
         this.value = value;
     }
 
     public static Title of(String value) {
-        if(value == null || value.trim().isEmpty()) {
+        if (value == null || value.trim().isEmpty()) {
             throw new IllegalArgumentException("Poll title can't be empty.");
         }
 
         String normalized = value.trim();
 
-        if(normalized.length() > 200) {
-           throw new IllegalArgumentException("Poll title must not exceed 200 characters.");
+        if (normalized.length() > 200) {
+            throw new IllegalArgumentException("Poll title must not exceed 200 characters.");
         }
 
         return new Title(normalized);

@@ -33,16 +33,16 @@ public class VoteTest {
 
         User member = User.create("Jane Doe", "jane@example.com", "jane_doe", "secret");
         Set<User> membersSet = Set.of(member);
-        PollMembers members = PollMembers.of(membersSet);
+        PollGroup members = PollGroup.of(membersSet);
         privatePoll = Poll.createPrivate("Poll #2", options, members, creator);
 
         PollSettings anonymousSetting = PollSettings.of(
-          AccessLevel.PUBLIC,
-          VotePermission.ANONYMOUS,
-          ResultsVisibility.ALL,
-          Status.ACTIVE,
-          null,
-          null
+                AccessLevel.PUBLIC,
+                VotePermission.ANONYMOUS,
+                ResultsVisibility.ALL,
+                Status.ACTIVE,
+                null,
+                null
         );
 
         anonymousPoll = Poll.create("Poll #3", options, creator);

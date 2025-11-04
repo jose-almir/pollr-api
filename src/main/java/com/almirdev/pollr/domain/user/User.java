@@ -1,6 +1,6 @@
 package com.almirdev.pollr.domain.user;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class User {
@@ -10,23 +10,24 @@ public class User {
     private Nickname nickname;
     private Password password;
     private Role role;
-    private LocalDate createdAt;
-    private LocalDate updatedAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 
-    public static User create(String name, String email, String nickname, String password) {
-        User user = new User(Name.of(name), Email.of(email), Nickname.of(nickname), Password.ofPlainText(password));
-        user.role = Role.USER;
-        user.createdAt = LocalDate.now();
-        return user;
+    protected User() {
     }
-
-    protected User() {}
 
     private User(Name name, Email email, Nickname nickname, Password password) {
         this.name = name;
         this.email = email;
         this.nickname = nickname;
         this.password = password;
+    }
+
+    public static User create(String name, String email, String nickname, String password) {
+        User user = new User(Name.of(name), Email.of(email), Nickname.of(nickname), Password.ofPlainText(password));
+        user.role = Role.USER;
+        user.createdAt = LocalDateTime.now();
+        return user;
     }
 
     public Long getId() {
@@ -62,36 +63,36 @@ public class User {
         this.role = role;
     }
 
-    public LocalDate getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDate createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public LocalDate getUpdatedAt() {
+    public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(LocalDate updatedAt) {
+    public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 
     public void updateProfile(String newName, String newNickname) {
         this.name = Name.of(newName);
         this.nickname = Nickname.of(newNickname);
-        this.updatedAt = LocalDate.now();
+        this.updatedAt = LocalDateTime.now();
     }
 
     public void changeEmail(String newEmail) {
         this.email = Email.of(newEmail);
-        this.updatedAt = LocalDate.now();
+        this.updatedAt = LocalDateTime.now();
     }
 
     public void changePassword(String hashedPassword) {
         this.password = Password.ofHashed(hashedPassword);
-        this.updatedAt = LocalDate.now();
+        this.updatedAt = LocalDateTime.now();
     }
 
     @Override

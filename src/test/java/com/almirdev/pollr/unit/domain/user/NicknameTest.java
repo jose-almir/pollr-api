@@ -2,7 +2,9 @@ package com.almirdev.pollr.unit.domain.user;
 
 import com.almirdev.pollr.domain.user.Nickname;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class NicknameTest {
     @Test
@@ -20,7 +22,7 @@ public class NicknameTest {
     @Test
     public void shouldThrowWhenValueIsEmpty() {
         assertThrows(IllegalArgumentException.class, () -> {
-           Nickname nickname = Nickname.of("");
+            Nickname nickname = Nickname.of("");
         });
     }
 

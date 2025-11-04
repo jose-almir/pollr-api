@@ -52,4 +52,12 @@ public class NameTest {
 
         assertEquals(name1, name2);
     }
+
+    @Test
+    public void shouldNormalizeWhenValueHasExtraSpaces() {
+        String value = "John  Doe";
+        Name name = Name.of(value);
+
+        assertEquals("John Doe", name.getValue());
+    }
 }

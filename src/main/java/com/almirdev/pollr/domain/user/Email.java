@@ -11,14 +11,15 @@ public class Email {
 
     private String value;
 
-    protected Email() {}
+    protected Email() {
+    }
 
     private Email(String value) {
         this.value = value;
     }
 
     public static Email of(String value) {
-        if(value == null || !EMAIL_PATTERN.matcher(value).matches()) {
+        if (value == null || !EMAIL_PATTERN.matcher(value).matches()) {
             throw new IllegalArgumentException("Invalid e-email: " + value);
         }
 

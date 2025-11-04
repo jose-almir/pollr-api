@@ -9,17 +9,18 @@ public class Poll {
     private PublicId publicId;
     private Title title;
     private PollOptions options;
-    private PollMembers members;
+    private PollGroup members;
     private PollSettings settings;
     private PollMetadata metadata;
 
-    protected Poll() {}
+    protected Poll() {
+    }
 
-    private Poll(String title, PollOptions options, PollMembers members, PollSettings settings, PollMetadata metadata) {
+    private Poll(String title, PollOptions options, PollGroup members, PollSettings settings, PollMetadata metadata) {
         this.publicId = PublicId.random();
         this.title = Title.of(title);
         this.options = options;
-        this.members = members == null ? PollMembers.empty() : members;
+        this.members = members == null ? PollGroup.empty() : members;
         this.settings = settings == null ? PollSettings.defaultSettings() : settings;
         this.metadata = metadata;
         this.options.setPoll(this);
@@ -31,7 +32,7 @@ public class Poll {
         return new Poll(title, options, null, settings, metadata);
     }
 
-    public static Poll createPrivate(String title, PollOptions options, PollMembers members, User createdBy) {
+    public static Poll createPrivate(String title, PollOptions options, PollGroup members, User createdBy) {
         PollSettings privateSettings = PollSettings.privateDefaults();
         PollMetadata metadata = PollMetadata.getCreatedBy(createdBy);
         return new Poll(title, options, members, privateSettings, metadata);
@@ -61,7 +62,7 @@ public class Poll {
         return options;
     }
 
-    public PollMembers getMembers() {
+    public PollGroup getMembers() {
         return members;
     }
 

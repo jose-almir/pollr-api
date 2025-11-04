@@ -10,7 +10,8 @@ public class PublicId {
 
     private String value;
 
-    protected PublicId() {}
+    protected PublicId() {
+    }
 
     private PublicId(String value) {
         this.value = value;
@@ -19,7 +20,7 @@ public class PublicId {
     public static PublicId random() {
         StringBuilder sb = new StringBuilder(DEFAULT_LENGTH);
 
-        for(int i = 0; i < DEFAULT_LENGTH; i++) {
+        for (int i = 0; i < DEFAULT_LENGTH; i++) {
             sb.append(CHARS.charAt(RANDOM.nextInt(CHARS.length())));
         }
 

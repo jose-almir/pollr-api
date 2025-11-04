@@ -5,6 +5,7 @@ import com.almirdev.pollr.domain.user.User;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -33,7 +34,7 @@ public class UserTest {
     @Test
     public void shouldUpdateNameAndNickNameAndSetUpdatedAt() throws InterruptedException {
         User user = User.create("John Doe", "john.doe@example.com", "john_doe", "secret");
-        LocalDate before = LocalDate.now();
+        LocalDateTime before = LocalDateTime.now();
         Thread.sleep(10);
         user.updateProfile("New Name", "new_nick");
         assertEquals("New Name", user.getName().getValue());

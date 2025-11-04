@@ -10,7 +10,8 @@ public class PollMetadata {
     private LocalDate createdAt;
     private LocalDate updatedAt;
 
-    protected PollMetadata() {}
+    protected PollMetadata() {
+    }
 
     private PollMetadata(User createdBy, LocalDate createdAt, LocalDate updatedAt) {
         this.createdBy = createdBy;

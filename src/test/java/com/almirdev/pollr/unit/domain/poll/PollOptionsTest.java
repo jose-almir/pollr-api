@@ -37,13 +37,13 @@ public class PollOptionsTest {
     @Test
     public void shouldThrowWhenOptionCountExceedsLimit() {
         assertThrows(IllegalArgumentException.class, () -> {
-           PollOptions options = PollOptions.of(mockOptionsSet(12)) ;
+            PollOptions options = PollOptions.of(mockOptionsSet(12));
         });
     }
 
     private Set<Option> mockOptionsSet(int length) {
         Set<Option> options = new HashSet<>(length);
-        for(int i = 0; i < length; i++) {
+        for (int i = 0; i < length; i++) {
             Option option = Option.of("Option " + (i + 1));
             options.add(option);
         }

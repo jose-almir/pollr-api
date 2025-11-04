@@ -49,7 +49,7 @@ public class PollTest {
         );
 
         PollOptions options = PollOptions.of(optionsSet);
-        PollMembers members = PollMembers.of(membersSet);
+        PollGroup members = PollGroup.of(membersSet);
 
         Poll poll = Poll.createPrivate("Poll #2", options, members, creator);
 

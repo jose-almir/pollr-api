@@ -1,7 +1,5 @@
 package com.almirdev.pollr.domain.poll;
 
-import com.almirdev.pollr.domain.user.User;
-
 import java.util.Objects;
 
 public class Option {
@@ -10,7 +8,8 @@ public class Option {
     private Long voteCount;
     private Poll poll;
 
-    protected Option() {}
+    protected Option() {
+    }
 
     private Option(String value, Long voteCount) {
         this.value = value;
@@ -18,7 +17,7 @@ public class Option {
     }
 
     public static Option of(String value) {
-        if(value == null || value.trim().isEmpty()) {
+        if (value == null || value.trim().isEmpty()) {
             throw new IllegalArgumentException("Option value can't be empty");
         }
 

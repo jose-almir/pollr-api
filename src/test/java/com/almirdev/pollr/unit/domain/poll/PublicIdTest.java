@@ -12,7 +12,7 @@ public class PublicIdTest {
             PublicId id1 = PublicId.random();
             PublicId id2 = PublicId.random();
 
-            assertNotEquals(id1, id2);
+            assertFalse(id1.equals(id2));
             assertEquals(10, id1.getValue().length());
         });
     }

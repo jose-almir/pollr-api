@@ -1,6 +1,6 @@
 package com.almirdev.pollr.unit.domain.poll;
 
-import com.almirdev.pollr.domain.poll.PollMembers;
+import com.almirdev.pollr.domain.poll.PollGroup;
 import com.almirdev.pollr.domain.user.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -9,7 +9,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PollMembersTest {
+public class PollGroupTest {
     private Set<User> mockMembersSet;
 
     @BeforeEach
@@ -25,7 +25,7 @@ public class PollMembersTest {
     @Test
     public void shouldCreatePollMembersProperly() {
         assertDoesNotThrow(() -> {
-            PollMembers members = PollMembers.of(mockMembersSet);
+            PollGroup members = PollGroup.of(mockMembersSet);
 
             assertEquals(4, members.size());
         });
@@ -34,14 +34,14 @@ public class PollMembersTest {
     @Test
     public void shouldThrowWhenMembersIsNull() {
         assertThrows(IllegalArgumentException.class, () -> {
-            PollMembers members = PollMembers.of(null);
+            PollGroup members = PollGroup.of(null);
         });
     }
 
     @Test
     public void shouldAddMemberProperly() {
         User newUser = User.create("Michael Johnson", "michael@example.com", "michael_john", "secret");
-        PollMembers members = PollMembers.of(mockMembersSet);
+        PollGroup members = PollGroup.of(mockMembersSet);
 
         assertTrue(members.add(newUser));
         assertEquals(5, members.size());
@@ -51,7 +51,7 @@ public class PollMembersTest {
     @Test
     public void shouldRemoveMemberProperly() {
         User toRemove = User.create("John Doe", "john1@example.com", "john1", "secret");
-        PollMembers members = PollMembers.of(mockMembersSet);
+        PollGroup members = PollGroup.of(mockMembersSet);
 
         assertTrue(members.remove(toRemove));
         assertEquals(3, members.size());

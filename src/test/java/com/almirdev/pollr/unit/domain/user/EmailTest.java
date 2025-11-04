@@ -1,8 +1,8 @@
 package com.almirdev.pollr.unit.domain.user;
 
 import com.almirdev.pollr.domain.user.Email;
-import com.almirdev.pollr.domain.user.Name;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class EmailTest {
@@ -12,13 +12,15 @@ public class EmailTest {
         assertDoesNotThrow(() -> {
             String value = "john.doe@gmail.com";
             Email email = Email.of(value);
+
+            assertEquals(value, email.getValue());
         });
     }
 
     @Test
     public void shouldThrowWhenValueIsNull() {
         assertThrows(IllegalArgumentException.class, () -> {
-           Email email = Email.of(null);
+            Email email = Email.of(null);
         });
     }
 
@@ -43,13 +45,5 @@ public class EmailTest {
         Email email2 = Email.of("john.doe@example.com");
 
         assertEquals(email1, email2);
-    }
-
-    @Test
-    public void shouldNormalizeWhenValueHasExtraSpaces() {
-        String value = "John  Doe";
-        Name name = Name.of(value);
-
-        assertEquals("John Doe", name.getValue());
     }
 }
